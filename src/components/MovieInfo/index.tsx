@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 // Component
 import Thumbnail from '../Thumbnail';
@@ -13,10 +12,16 @@ import {IMAGE_BASE_URL, POSTER_SIZE} from '../../config';
 // Imgae
 import NoImage from '../../images/no_image.jpg';
 
-const MovieInfo = ({movie}) => (
+// Type
+import {MovieState} from '../../hooks/useMovieFetch';
+type Props = {
+    movie: MovieState;
+}
+
+const MovieInfo: React.FC<Props> = ({movie}) => (
     <Wrapper backdrop={movie.backdrop_path}>
         <Content>
-            <Thumbnail 
+            <Thumbnail
                 image={
                     movie.poster_path
                     ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`
@@ -45,7 +50,5 @@ const MovieInfo = ({movie}) => (
         </Content>
     </Wrapper>
 )
-
-MovieInfo.propTypes = {movie: PropTypes.object}
 
 export default MovieInfo;

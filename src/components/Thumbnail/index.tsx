@@ -7,7 +7,7 @@ import {Image} from './Thumbnail.style';
 // Types
 type Props = {
     image: string;
-    movieId: number;
+    movieId?: number;
     clickable: boolean;
 }
 
