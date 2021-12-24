@@ -1,8 +1,5 @@
 import React from 'react';
 
-// // for classes
-// import React, {Component} from 'react';
-
 import {useParams} from 'react-router-dom';
 
 // Config
@@ -22,12 +19,10 @@ import {useMovieFetch} from '../hooks/useMovieFetch';
 // Image
 import NoImage from '../images/no_image.jpg';
 
-// // API    ~    Because use " classes "
-// import API from '../API';
-
-const Movie = () => {
+const Movie: React.FC = () => {
     const {movieId} = useParams();
-    const {State: Movie, Loading, Error} = useMovieFetch(movieId);
+
+    const {State: Movie, Loading, Error} = useMovieFetch(String(movieId));
     
     if (Loading) return <SpinnerLoading />
     if (Error) return <div>Something wrong ....</div>

@@ -1,11 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
 // Style
 import {Image} from './Thumbnail.style';
 
-const Thumbnail = ({image, movieId, clickable}) => (
+// Types
+type Props = {
+    image: string;
+    movieId: number;
+    clickable: boolean;
+}
+
+const Thumbnail: React.FC<Props> = ({image, movieId, clickable}) => (
     <div>
         {clickable ? (
             <Link to={`/${movieId}`}>
@@ -16,11 +22,5 @@ const Thumbnail = ({image, movieId, clickable}) => (
         )}
     </div>
 );
-
-Thumbnail.propTypes = {
-    image: PropTypes.string,
-    movieId: PropTypes.number,
-    clickable: PropTypes.bool
-}
 
 export default Thumbnail;

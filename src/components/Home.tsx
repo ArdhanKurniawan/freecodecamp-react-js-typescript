@@ -26,7 +26,7 @@ import NoImage from '../images/no_image.jpg';
 // import API from '../API';
 
 
-const Home = () => {
+const Home: React.FC = () => {
 
     const {State, Loading, Error, searchTerm, setSearchTerm, setIsLoadingMore} = useHomeFetch();
     // console.log(State);
